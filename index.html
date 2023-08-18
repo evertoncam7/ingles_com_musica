@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/icons/styles.css">
     <title>Inglês com música</title>
     <style>
 
@@ -12,54 +13,174 @@
             box-sizing: border-box;
         }
 
+        .header-app{
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0px 20px;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .icon-menu{
+            font-size: 1.5em;
+            margin-top: 5px;
+        }
+
         .line{
             display: flex;
+            
+            margin-top: 10px;
         }
 
         .frasePlay{
-            padding: 5px 15px;
+            padding: 5px;
             background: blueviolet;
             border-radius: 3px;
             color: #fff;
             margin: 2.5px;
-            
+        }
+
+        .frasePlayActive{
+            background: rgb(69, 16, 119);
         }
 
         .frasePlay:hover{
             cursor: pointer;;
         }
 
-        header{
+        .box-name-musica{
+            display: flex;
+            align-items: center;
             padding: 10px;
         }
 
-        .box-name-musica{
+        .icon-list-ol{
+            margin-left: 20px;
+            font-size: 1.3em;
+        }
+
+        .parte{
             padding: 10px;
         }
+
+        .p1Line{
+            width: 30px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3em;
+            
+        }
+
+        .icon-volume-up-1{
+            margin-top: 5px;
+        }
+
+        .p2Line{
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .tradutor{
+            width: 100%;
+            height: 30px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .tradutor-fixed{
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 50px;
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+
+        .tradutor-display{
+            width: 90%;
+            height: 80%;
+            background: rgb(255, 255, 255);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            box-shadow: 0px 0px 10px #00000048;
+        }
+
+        .text-traducao{
+            color: blueviolet;
+            margin-left: 5px;
+        }
+
+
+        .open-tradutor-fixed{
+            display: flex;
+            animation-name: anima-open-tradutor-fixed;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes anima-open-tradutor-fixed {
+            0%{
+                
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+
+
+        footer{
+            width: 100%;
+            height: 200px;
+            background: #222;
+        }
+
 
 
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Inglês com música</h1>
-        <p>Esta aula combina exercícios físicos com a prática da língua inglesa, proporcionando um treinamento completo para o corpo e a mente.</p>
+    <header class="header-app">
+        <div class="title">Inguên com música</div>
+        <div class="icon-menu"></div>
     </header>
     <main>
 
         <div class="box-name-musica">
-            <h2>More Than Words</h2>
-            <h4>Extreme</h4>
+            <div class="music-name">
+                <h2>More Than Words</h2>
+                <h4>Extreme</h4>
+            </div>
+            <span class="icon-list-ol"></span>
         </div>
-        <ul class="list-music">
-            <li class="line"></li>
-            <li class="line"></li>
-            <li class="line"></li>
-            <li class="line"></li>
-        </ul>
+        <div class="tradutor">
 
-        
+        </div>
+        <div class="tradutor-fixed">
+            <div class="tradutor-display">
+
+            </div>
+        </div>
+        <div class="list-music">
+            
+        </div>
 
     </main>
     <footer>
@@ -67,97 +188,107 @@
     </footer>
     
 </body>
+<script src="assets/js/db.js"></script>
 <script>
 
-    const db = [
-        {frases:[
-            {text:'Saying ', audio:"assets/audios/Saying.mp3"},
-            {text:'I', audio:"assets/audios/I.mp3"},
-            {text:'love  ', audio:"assets/audios/love.mp3"},
-            {text:'you ', audio:"assets/audios/you.mp3"}
-        ]},
-        {frases:[
-            {text:'Is', audio:"assets/audios/Is.mp3"},
-            {text:'not', audio:"assets/audios/not.mp3"},
-            {text:'the', audio:"assets/audios/the.mp3"},
-            {text:'words', audio:"assets/audios/words.mp3"},
-            {text:'I', audio:"assets/audios/I.mp3"},
-            {text:'want', audio:"assets/audios/want.mp3"},
-            {text:'to', audio:"assets/audios/to.mp3"},
-            {text:'hear', audio:"assets/audios/hear.mp3"},
-            {text:'from', audio:"assets/audios/from.mp3"},
-            {text:'you', audio:"assets/audios/you.mp3"},
-        ]},
-        {frases:[
-            {text:`It's`, audio:`assets/audios/It's.mp3`},
-            {text:'not', audio:"assets/audios/not.mp3"},
-            {text:'that', audio:"assets/audios/that.mp3"},
-            {text:'I', audio:"assets/audios/I.mp3"},
-            {text:'want', audio:"assets/audios/want.mp3"},
-            {text:'you', audio:"assets/audios/you.mp3"},
-        ]},
-        {frases:[
-            {text:`Not`, audio:`assets/audios/Not.mp3`},
-            {text:`to`, audio:`assets/audios/to.mp3`},
-            {text:'say', audio:"assets/audios/say.mp3"},
-            {text:'but', audio:"assets/audios/but.mp3"},
-            {text:'if', audio:"assets/audios/if.mp3"},
-            {text:'you', audio:"assets/audios/you.mp3"},
-            {text:'only', audio:"assets/audios/only.mp3"},
-            {text:'knew', audio:"assets/audios/knew.mp3"},
-        ]},
-    ];
+    const listMusic = document.querySelector('.list-music');
 
-            
-
-    // Not to say but if you only knew
-
-    const line = document.querySelectorAll(".line");
-
-    for (let index = 0; index < db.length; index++) {
+    db2.forEach(function(v, i){
         
-        // console.log(db[index]);
-        // console.log(line[index]);
+        const parte = document.createElement("div");
+        parte.setAttribute("class", "parte");
 
-        for (let indiceFrase = 0; indiceFrase < db[index].frases.length; indiceFrase++) {
-            
-            // console.log(db[index].frases[indiceFrase]);
-            const span = document.createElement("span");
-            span.setAttribute("class", "frasePlay");
-            span.setAttribute("data-line", index);
-            span.setAttribute("data-phrase", indiceFrase);
-            span.innerHTML = db[index].frases[indiceFrase].text;
-            line[index].appendChild(span);
+        v.frases.forEach(function(v){
 
-        }
+            const line = document.createElement("div");
+            line.setAttribute("class", "line");
+                 
+                const p1Line = document.createElement("div");
+                p1Line.setAttribute("class", "p1Line");
+                    const icon = document.createElement("span");
+                    icon.setAttribute("class", "icon-volume-up-1");
+
+                    icon.addEventListener("click", function(){
+
+                        console.log("Clicou no ícone!!!...");
+
+                    });
+
+                    p1Line.appendChild(icon);
+                line.appendChild(p1Line);
+
+                const p2Line = document.createElement("div");
+                p2Line.setAttribute("class", "p2Line");
+
+                    v.palavras.forEach(function(v){
+
+                        const word = document.createElement("span");
+                        word.setAttribute("class", "frasePlay");
+                        word.innerHTML = v.text;
+
+                    
+                        const audio = new Audio(v.audio);
+
+                        word.addEventListener("click", function(e){
+
+                            audio.play();
+
+                            // active button
+                            if (document.querySelector(".frasePlayActive")) {
+                                document.querySelector(".frasePlayActive").classList.remove("frasePlayActive")
+                            }
+
+                            this.classList.add("frasePlayActive");
+
+                            const t = document.querySelector(".tradutor");
+                            t.innerHTML = `Tradução: <span class='text-traducao'>${v.tradutor}</span>`;
+
+                            const td = document.querySelector(".tradutor-display");
+                            td.innerHTML = `Tradução: <span class='text-traducao'>${v.tradutor}</span>`;
+
+                        });
+
+                        window.addEventListener("scroll", function(){
+
+                            if (window.scrollY > 200) {
+                                
+                                const trad = document.querySelector(".tradutor-fixed");
+                                trad.classList.add('open-tradutor-fixed');
+
+                            }else{
+                                const trad = document.querySelector(".tradutor-fixed");
+                                trad.classList.remove('open-tradutor-fixed');
+                            }
+                            
+                        })
+
+                        p2Line.appendChild(word);
+
+
+                    });
+
+                console.log(v.palavras);
+
+
+
+                line.appendChild(p2Line);
+
+            parte.appendChild(line);
+        })
+
         
-    }
-
-    console.log(line);
 
 
-    function falar(fla){
 
-        const audio = new Audio(fla);
-        return audio;
+        listMusic.appendChild(parte);
+        
+    })
+
     
-    }
-
-    const playFrases = document.querySelectorAll(".frasePlay");
-
-    for (let indiceBtnPlayAudio = 0; indiceBtnPlayAudio < playFrases.length; indiceBtnPlayAudio++) {
-        
-        playFrases[indiceBtnPlayAudio].addEventListener("click", function(e){
-
-            const au = falar();
-            au.src = db[e.target.dataset.line].frases[e.target.dataset.phrase].audio;
-            au.play();
-
-        });
-        
-    }
 
     
+
+   
   
 
 </script>
