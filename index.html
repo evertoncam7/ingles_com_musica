@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inglês com música</title>
+    <style>
+
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        .line{
+            display: flex;
+        }
+
+        .frasePlay{
+            padding: 5px 15px;
+            background: blueviolet;
+            border-radius: 3px;
+            color: #fff;
+            margin: 2.5px;
+            
+        }
+
+        .frasePlay:hover{
+            cursor: pointer;;
+        }
+
+        header{
+            padding: 10px;
+        }
+
+        .box-name-musica{
+            padding: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Inglês com música</h1>
+        <p>Esta aula combina exercícios físicos com a prática da língua inglesa, proporcionando um treinamento completo para o corpo e a mente.</p>
+    </header>
+    <main>
+
+        <div class="box-name-musica">
+            <h2>More Than Words</h2>
+            <h4>Extreme</h4>
+        </div>
+        <ul class="list-music">
+            <li class="line"></li>
+            <li class="line"></li>
+            <li class="line"></li>
+        </ul>
+
+        
+
+    </main>
+    <footer>
+
+    </footer>
+    
+</body>
+<script>
+
+    const db = [
+        {frases:[
+            {text:'Saying ', audio:"assets/audios/Saying.mp3"},
+            {text:'I', audio:"assets/audios/I.mp3"},
+            {text:'love  ', audio:"assets/audios/love.mp3"},
+            {text:'you ', audio:"assets/audios/you.mp3"}
+        ]},
+        {frases:[
+            {text:'Is', audio:"assets/audios/Is.mp3"},
+            {text:'not', audio:"assets/audios/not.mp3"},
+            {text:'the', audio:"assets/audios/the.mp3"},
+            {text:'words', audio:"assets/audios/words.mp3"},
+            {text:'I', audio:"assets/audios/I.mp3"},
+            {text:'want', audio:"assets/audios/want.mp3"},
+            {text:'to', audio:"assets/audios/to.mp3"},
+            {text:'hear', audio:"assets/audios/hear.mp3"},
+            {text:'from', audio:"assets/audios/from.mp3"},
+            {text:'you', audio:"assets/audios/you.mp3"},
+        ]},
+        {frases:[
+            {text:`It's`, audio:`assets/audios/It's.mp3`},
+            {text:'not', audio:"assets/audios/not.mp3"},
+            {text:'that', audio:"assets/audios/that.mp3"},
+            {text:'I', audio:"assets/audios/I.mp3"},
+            {text:'want', audio:"assets/audios/want.mp3"},
+            {text:'you', audio:"assets/audios/you.mp3"},
+        ]},
+    ];
+
+    // It's not that I want you
+
+    const line = document.querySelectorAll(".line");
+
+    for (let index = 0; index < db.length; index++) {
+        
+        // console.log(db[index]);
+        // console.log(line[index]);
+
+        for (let indiceFrase = 0; indiceFrase < db[index].frases.length; indiceFrase++) {
+            
+            // console.log(db[index].frases[indiceFrase]);
+            const span = document.createElement("span");
+            span.setAttribute("class", "frasePlay");
+            span.setAttribute("data-line", index);
+            span.setAttribute("data-phrase", indiceFrase);
+            span.innerHTML = db[index].frases[indiceFrase].text;
+            line[index].appendChild(span);
+
+        }
+        
+    }
+
+    console.log(line);
+
+
+    function falar(fla){
+
+        const audio = new Audio(fla);
+        return audio;
+    
+    }
+
+    const playFrases = document.querySelectorAll(".frasePlay");
+
+    for (let indiceBtnPlayAudio = 0; indiceBtnPlayAudio < playFrases.length; indiceBtnPlayAudio++) {
+        
+        playFrases[indiceBtnPlayAudio].addEventListener("click", function(e){
+
+            const au = falar();
+            au.src = db[e.target.dataset.line].frases[e.target.dataset.phrase].audio;
+            au.play();
+
+        });
+        
+    }
+
+    
+  
+
+</script>
+</html>
