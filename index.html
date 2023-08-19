@@ -24,6 +24,22 @@
             font-weight: bold;
         }
 
+        .avatar-app{
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            border-radius: 3px;
+        }
+
+        .avatar-app img{
+            height: 100%;
+            margin-left: calc(-50% + 25px);
+        }
+
+        .actions{
+            margin-bottom: 10px;
+        }
+
         .icon-menu{
             font-size: 1.5em;
             margin-top: 5px;
@@ -54,7 +70,8 @@
         .box-name-musica{
             display: flex;
             align-items: center;
-            padding: 10px;
+            justify-content: space-between;
+            padding: 5px 20px;
         }
 
         .icon-list-ol, .icon-music{
@@ -135,6 +152,8 @@
             animation-fill-mode: forwards;
         }
 
+        
+
         @keyframes anima-open-tradutor-fixed {
             0%{
                 
@@ -169,6 +188,11 @@
                 <h2>More Than Words</h2>
                 <h4>Extreme</h4>
             </div>
+            <div class="avatar-app">
+                <img src="assets/images/extreme/capa.jpg" alt="">
+            </div>
+        </div>
+        <div class="actions">
             <span class="icon-list-ol"></span>
             <span class="icon-music"></span>
         </div>
